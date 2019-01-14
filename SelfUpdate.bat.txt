@@ -1,0 +1,16 @@
+rem 此批处理是LiveUpdate自我更新用的
+rem 如果您机器上的HIP软件报警，请允许运行
+rem 更新完后批处理会自我删除
+
+@echo off
+if not exist LiveUpdate.upd goto end
+
+:delexe
+del LiveUpdate.exe
+if exist LiveUpdate.exe goto delexe
+
+rename LiveUpdate.upd LiveUpdate.exe
+
+:end
+if exist %0.bat del %0.bat
+if exist %0 del %0
